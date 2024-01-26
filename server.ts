@@ -1,16 +1,13 @@
-// Import necessary libraries
 import express from 'express';
 import cors from 'cors';
 import csv from 'csv-parser';
 import fs from 'fs';
 
-// Create an Express app
-const app = express();
+const CSV_PATH = './FE_dev_exam_log.csv';
 
-// Enable CORS for all routes
+const app = express();
 app.use(cors());
 
-// Define a type for the CSV data
 interface CsvData {
   timestamp: string;
   kwh: number;
@@ -21,7 +18,7 @@ interface CsvData {
 let csvData: CsvData[] = [];
 
 // Read CSV file and populate csvData array
-fs.createReadStream('./FE_dev_exam_log.csv')
+fs.createReadStream(CSV_PATH)
   .pipe(csv())
   .on('data', (row) => {
     const formattedRow = {
@@ -48,7 +45,6 @@ app.get('/api/metricsData', (req, res) => {
   }
 });
 
-// Start the server
 const port = 3001;
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

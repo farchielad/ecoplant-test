@@ -11,10 +11,11 @@ interface CsvDataTableProps {
 const CsvDataTable: React.FC<CsvDataTableProps> = ({ data, columns, maxHeight }) => {
   return (
     <MaterialTable
-      title=""
       columns={columns}
       data={data}
       options={{
+        sorting: true,
+        thirdSortClick: false,
         toolbar: false,
         headerStyle: {
           position: 'sticky',

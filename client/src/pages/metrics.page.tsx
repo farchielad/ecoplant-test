@@ -95,7 +95,7 @@ const MetricsPage: React.FC = () => {
         <CsvDataTable
           data={filterDataByTimeRange(data, selectedDates.start, selectedDates.end)}
           columns={columns}
-          maxHeight="60vh"
+          maxHeight="70vh"
         />
       </div>
     </div>
