@@ -1,21 +1,14 @@
-import express from 'express';
-import cors from 'cors';
-import csv from 'csv-parser';
-import fs from 'fs';
+const express = require('express');
+const cors = require('cors');
+const csv = require('csv-parser');
+const fs = require('fs');
 
 const CSV_PATH = './FE_dev_exam_log.csv';
 
 const app = express();
 app.use(cors());
 
-interface CsvData {
-  timestamp: string;
-  kwh: number;
-  pressure: number;
-  tepm: number;
-}
-
-let csvData: CsvData[] = [];
+const csvData = [];
 
 // Read CSV file and populate csvData array
 fs.createReadStream(CSV_PATH)
@@ -25,9 +18,9 @@ fs.createReadStream(CSV_PATH)
       timestamp: row[Object.keys(row)[0]] || '',
       kwh: parseFloat(row.kwh) || 0,
       pressure: parseFloat(row.pressure) || 0,
-      temp: parseFloat(row.tepm) || 0,
+      temp: parseFloat(row.temp) || 0,
     };
-    csvData.push(formattedRow as any);
+    csvData.push(formattedRow);
   })
   .on('end', () => {
     console.log('CSV file successfully processed.');
@@ -40,7 +33,7 @@ app.get('/api/metricsData', (req, res) => {
     }
 
     res.json(csvData);
-  } catch (error: any) {
+  } catch (error) {
     res.status(500).json({ error: error.message || 'An error occurred.' });
   }
 });
