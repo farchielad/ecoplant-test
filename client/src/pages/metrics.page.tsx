@@ -10,7 +10,8 @@ import { useStyles } from "./metrics.styles";
 import { CsvData} from "../interfaces";
 
 const METRICS_ENDPOINT = 'http://localhost:3001/api/metricsData';
-const DATE_TIME_FORMAT = 'MM/DD/YYYY HH:mm'; // assuming table data is also in this format.
+// assuming table data is also in this format. Unable to know from data if it is MM/DD or DD/MM
+const DATE_TIME_FORMAT = 'MM/DD/YYYY HH:mm';
 
 const MetricsPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
