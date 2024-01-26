@@ -10,4 +10,5 @@ export interface CsvData {
 export interface CsvDataTableProps {
   data: CsvData[];
   columns: Column<CsvData>[];
+  maxHeight: string;
 }

@@ -1,12 +1,6 @@
 import React from 'react';
-import MaterialTable, { Column } from '@material-table/core';
-import { CsvData } from '../../interfaces';
-
-interface CsvDataTableProps {
-  data: CsvData[];
-  columns: Column<CsvData>[];
-  maxHeight: string;
-}
+import MaterialTable from '@material-table/core';
+import { CsvDataTableProps } from '../../interfaces';
 
 const CsvDataTable: React.FC<CsvDataTableProps> = ({ data, columns, maxHeight }) => {
   return (

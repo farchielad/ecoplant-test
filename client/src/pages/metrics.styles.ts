@@ -12,5 +12,11 @@ export const useStyles = makeStyles({
   },
   tableWrapper: {
     paddingTop: 20,
-  }
+  },
+  loadingSpinner: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+  },
 });
