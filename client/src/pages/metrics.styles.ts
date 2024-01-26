@@ -1,10 +1,16 @@
 import { makeStyles } from '@mui/styles';
 
 export const useStyles = makeStyles({
-  MetricsPageWrapper: {
+  metricsPageWrapper: {
     paddingLeft: 20,
     paddingRight: 20,
     paddingTop: 20,
     paddingBottom: 20
   },
+  datePickerWrapper: {
+    width: 500,
+  },
+  tableWrapper: {
+    paddingTop: 20,
+  }
 });

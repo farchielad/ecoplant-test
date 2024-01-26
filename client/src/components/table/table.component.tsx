@@ -11,17 +11,18 @@ interface CsvDataTableProps {
 const CsvDataTable: React.FC<CsvDataTableProps> = ({ data, columns, maxHeight }) => {
   return (
     <MaterialTable
-      title={<div style={{ color: '#142d4a' }}>CSV Data</div>}
+      title=""
       columns={columns}
       data={data}
       options={{
+        toolbar: false,
         headerStyle: {
           position: 'sticky',
           top: 0,
           background: '#96b964'
         },
         paging: true,
-        pageSize: 20,
+        pageSize: Math.min(data.length, 20),
         pageSizeOptions: [20],
         search: false,
         maxBodyHeight: maxHeight,
