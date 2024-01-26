@@ -18,7 +18,7 @@ fs.createReadStream(CSV_PATH)
       timestamp: row[Object.keys(row)[0]] || '',
       kwh: parseFloat(row.kwh) || 0,
       pressure: parseFloat(row.pressure) || 0,
-      temp: parseFloat(row.temp) || 0,
+      temp: parseFloat(row.tepm) || 0,
     };
     csvData.push(formattedRow);
   })
