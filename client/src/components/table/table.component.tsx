@@ -8,7 +8,6 @@ const CsvDataTable: React.FC<CsvDataTableProps> = ({ data, columns, maxHeight })
       columns={columns}
       data={data}
       options={{
-        sorting: true,
         thirdSortClick: false,
         toolbar: false,
         headerStyle: {
